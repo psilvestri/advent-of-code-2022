@@ -39,4 +39,39 @@
 
 // Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
+const fs = require('fs');
+const calorieListInput = fs.readFileSync('aoc2022-1-1-input.txt', 'utf-8');
+const calorieList = calorieListInput.split(/\r?\n/);
+let elfNumber = 1;
+let totalCalories = 0;
+let calorieResults = [];
 
+calorieList.forEach((line) => {
+	if (line != '') {
+		totalCalories += parseInt(line);
+	} else {
+		calorieResults.push({
+			'Elf Number': elfNumber,
+			'Total Calories': totalCalories,
+		});
+		elfNumber++;
+		totalCalories = 0;
+	}
+});
+
+calorieResults.push({
+	'Elf Number': elfNumber,
+	'Total Calories': totalCalories,
+});
+
+const elfWithHighestCalories = calorieResults.reduce((prev, current) => {
+	return prev['Total Calories'] > current['Total Calories'] ? prev : current;
+});
+
+console.log(
+	'The elf carrying the most calories is elf #' +
+		elfWithHighestCalories['Elf Number'] +
+		' and they are carrying ' +
+		elfWithHighestCalories['Total Calories'] +
+		' calories.'
+);
