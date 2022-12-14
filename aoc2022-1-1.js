@@ -40,7 +40,7 @@
 // Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
 const fs = require('fs');
-const calorieListInput = fs.readFileSync('aoc2022-1-1-input.txt', 'utf-8');
+const calorieListInput = fs.readFileSync('aoc2022-1-input.txt', 'utf-8');
 const calorieList = calorieListInput.split(/\r?\n/);
 let elfNumber = 1;
 let totalCalories = 0;
