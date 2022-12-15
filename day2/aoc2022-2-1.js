@@ -46,18 +46,6 @@ cheatSheetData.forEach((line) => {
 		oppMove = matchResults[0];
 		myMove = matchResults[1];
 
-		switch (myMove) {
-			case 'X':
-				myPoints += 1;
-				break;
-			case 'Y':
-				myPoints += 2;
-				break;
-			case 'Z':
-				myPoints += 3;
-				break;
-		}
-
 		switch (oppMove) {
 			case 'A':
 				oppPoints += 1;
@@ -67,6 +55,18 @@ cheatSheetData.forEach((line) => {
 				break;
 			case 'C':
 				oppPoints += 3;
+				break;
+		}
+
+		switch (myMove) {
+			case 'X':
+				myPoints += 1;
+				break;
+			case 'Y':
+				myPoints += 2;
+				break;
+			case 'Z':
+				myPoints += 3;
 				break;
 		}
 
