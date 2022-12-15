@@ -48,25 +48,25 @@ cheatSheetData.forEach((line) => {
 
 		switch (oppMove) {
 			case 'A':
-				oppPoints += 1;
+				oppPoints += rockPoints;
 				break;
 			case 'B':
-				oppPoints += 2;
+				oppPoints += paperPoints;
 				break;
 			case 'C':
-				oppPoints += 3;
+				oppPoints += scissorsPoints;
 				break;
 		}
 
 		switch (myMove) {
 			case 'X':
-				myPoints += 1;
+				myPoints += rockPoints;
 				break;
 			case 'Y':
-				myPoints += 2;
+				myPoints += paperPoints;
 				break;
 			case 'Z':
-				myPoints += 3;
+				myPoints += scissorsPoints;
 				break;
 		}
 
