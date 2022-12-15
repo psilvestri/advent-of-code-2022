@@ -42,6 +42,7 @@
 const fs = require('fs');
 const calorieListInput = fs.readFileSync('aoc2022-1-input.txt', 'utf-8');
 const calorieList = calorieListInput.split(/\r?\n/);
+
 let elfNumber = 1;
 let totalCalories = 0;
 let calorieResults = [];

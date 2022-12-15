@@ -27,3 +27,76 @@
 // In this example, if you were to follow the strategy guide, you would get a total score of 15 (8 + 1 + 6).
 
 // What would your total score be if everything goes exactly according to your strategy guide?
+
+const fs = require('fs');
+const cheatSheetInput = fs.readFileSync('aoc2022-2-input.txt', 'utf-8');
+const cheatSheetData = cheatSheetInput.split(/\r?\n/);
+
+let myMove = '';
+let oppMove = '';
+let myPoints = 0;
+let oppPoints = 0;
+const rockPoints = 1;
+const paperPoints = 2;
+const scissorsPoints = 3;
+
+cheatSheetData.forEach((line) => {
+	if (line != '') {
+		matchResults = line.split(' ');
+		oppMove = matchResults[0];
+		myMove = matchResults[1];
+
+		switch (myMove) {
+			case 'X':
+				myPoints += 1;
+				break;
+			case 'Y':
+				myPoints += 2;
+				break;
+			case 'Z':
+				myPoints += 3;
+				break;
+		}
+
+		switch (oppMove) {
+			case 'A':
+				oppPoints += 1;
+				break;
+			case 'B':
+				oppPoints += 2;
+				break;
+			case 'C':
+				oppPoints += 3;
+				break;
+		}
+
+		if (
+			(oppMove == 'A') & (myMove == 'X') ||
+			(oppMove == 'B') & (myMove == 'Y') ||
+			(oppMove == 'C') & (myMove == 'Z')
+		) {
+			// Tie conditions
+			myPoints += 3;
+			oppPoints += 3;
+		} else if (
+			(oppMove == 'A') & (myMove == 'Y') ||
+			(oppMove == 'B') & (myMove == 'Z') ||
+			(oppMove == 'C') & (myMove == 'X')
+		) {
+			// My win conditions
+			myPoints += 6;
+		} else {
+			// Opponent win conditions
+			oppPoints + 6;
+		}
+	} else {
+		return;
+	}
+});
+
+console.log(
+	'Using the strategy guide, my total score would be ' +
+		myPoints +
+		" and my opponent's total score would be " +
+		oppPoints
+);
